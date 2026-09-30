@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <title>FitBuddy - Result</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #121212;
+            color: #fff;
+            padding: 2rem;
+        }
+        h1, h2 {
+            font-weight: 700;
+        }
+        .plan, .tip {
+            background: #1e1e1e;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255,255,255,0.1);
+        }
+        form {
+            margin-top: 2rem;
+        }
+        input {
+            width: 80%;
+            padding: 0.5rem;
+            border-radius: 5px;
+            border: none;
+        }
+        button {
+            padding: 0.5rem 1rem;
+            background: #ff5722;
+            border: none;
+            border-radius: 5px;
+            font-weight: 700;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #e64a19;
+        }
+    </style>
+    <title>FitBuddy - Result</title>
+</head>
+<body>
+    <h1>Workout Plan for {{ user.name }}</h1>
+    <h2>Plan:</h2>
+    <pre>{{ workout_plan }}</pre>
+
+    <h2>Nutrition Tip:</h2>
+    <p>{{ nutrition_tip }}</p>
+
+    <h2>Submit Feedback</h2>
+    <form action="/submit-feedback" method="post">
+        <input type="hidden" name="user_id" value="{{ user.id }}">
+        <label>Feedback:</label><input type="text" name="feedback" required>
+        <button type="submit">Update Plan</button>
+    </form>
+</body>
+</html>
